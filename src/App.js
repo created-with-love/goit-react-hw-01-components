@@ -1,16 +1,17 @@
-import Profile from './components/Profile';
+import Profile from './components/Profile/Profile';
 import profileData from './data/user.json';
-import Statistics from './components/Statistics';
+import Statistics from './components/Statistics/Statistics';
 import statisticalData from './data/statistical-data.json';
-import FriendList from './components/FriendList';
+import FriendList from './components/FriendList/FriendList';
 import friendsData from './data/friends.json';
-import Transactions from './components/TransactionHistory';
+import Transactions from './components/Transactions/TransactionHistory';
 import transactionsData from './data/transactions.json';
+import Section from './components/Section/Section';
 
 function App() {
   const { name, tag, location, avatar, stats } = profileData;
   return (
-    <>
+    <Section classNames="userCard">
       <Profile
         name={name}
         tag={tag}
@@ -21,7 +22,7 @@ function App() {
       <Statistics title="Upload stats" stats={statisticalData} />
       <FriendList props={friendsData} />
       <Transactions props={transactionsData} />
-    </>
+    </Section>
   );
 }
 
