@@ -20,8 +20,8 @@ function App() {
         stats={stats}
       />
       <Statistics title="Upload stats" stats={statisticalData} />
-      <FriendList props={friendsData} />
-      <Transactions props={transactionsData} />
+      <FriendList friendsData={friendsData} />
+      <Transactions transactionsData={transactionsData} />
     </Section>
   );
 }
