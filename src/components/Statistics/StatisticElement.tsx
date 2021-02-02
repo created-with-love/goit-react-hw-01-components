@@ -9,7 +9,7 @@ interface IStatisticElement {
   index: number;
 }
 
-const StatisticElement = <T extends IStatisticElement>({ item, index }: T) => {
+const StatisticElement = ({ item, index }: IStatisticElement) => {
   const colors = [
     '#ba6e6e',
     '#746eba',

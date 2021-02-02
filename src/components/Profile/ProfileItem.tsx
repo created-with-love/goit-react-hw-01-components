@@ -1,17 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import s from './Profile.module.css';
 
-interface IProfileListItems {
+interface Props {
   followers: number;
   views: number;
   likes: number;
 }
 
-export default function ProfileListItems<T extends IProfileListItems>({
-  followers,
-  views,
-  likes,
-}: T) {
+const ProfileListItems: FC<Props> = ({ followers, views, likes }) => {
   return (
     <ul className={s.stats}>
       <li>
@@ -28,4 +24,6 @@ export default function ProfileListItems<T extends IProfileListItems>({
       </li>
     </ul>
   );
-}
+};
+
+export default ProfileListItems;

@@ -10,7 +10,7 @@ interface IStatistics {
   }[];
 }
 
-const Statistics = <T extends IStatistics>({ title, stats }: T) => {
+const Statistics = ({ title, stats }: IStatistics) => {
   return (
     <section className={s.statistics}>
       {title && <h2 className={s.title}>UPLOAD STATS</h2>}

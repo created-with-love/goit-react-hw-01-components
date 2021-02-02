@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import s from './Profile.module.css';
 import Stats from './ProfileItem';
 
-interface IProfile {
+interface Props {
   name: string;
   tag: string;
   location: string;
@@ -13,13 +14,7 @@ interface IProfile {
   };
 }
 
-export default function Profile<T extends IProfile>({
-  name,
-  tag,
-  location,
-  avatar,
-  stats,
-}: T) {
+const Profile: FC<Props> = ({ name, tag, location, avatar, stats }) => {
   return (
     <div className={s.profile}>
       <div className={s.description}>
@@ -34,4 +29,6 @@ export default function Profile<T extends IProfile>({
       <Stats {...stats} />
     </div>
   );
-}
+};
+
+export default Profile;

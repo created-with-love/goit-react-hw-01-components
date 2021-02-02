@@ -7,12 +7,7 @@ export interface IFriendListItem {
   id: number;
 }
 
-const FriendListItem = <T extends IFriendListItem>({
-  id,
-  avatar,
-  name,
-  isOnline,
-}: T) => {
+const FriendListItem = ({ id, avatar, name, isOnline }: IFriendListItem) => {
   return (
     <li className={s.item} key={id}>
       <span className={isOnline ? s.statusOnline : s.statusOffline}></span>
