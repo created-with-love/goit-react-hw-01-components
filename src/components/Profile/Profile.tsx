@@ -1,8 +1,25 @@
-import PropTypes from 'prop-types';
 import s from './Profile.module.css';
 import Stats from './ProfileItem';
 
-export default function Profile({ name, tag, location, avatar, stats }) {
+interface IProfile {
+  name: string;
+  tag: string;
+  location: string;
+  avatar: string;
+  stats: {
+    followers: number;
+    views: number;
+    likes: number;
+  };
+}
+
+export default function Profile<T extends IProfile>({
+  name,
+  tag,
+  location,
+  avatar,
+  stats,
+}: T) {
   return (
     <div className={s.profile}>
       <div className={s.description}>
@@ -18,15 +35,3 @@ export default function Profile({ name, tag, location, avatar, stats }) {
     </div>
   );
 }
-
-Profile.propTypes = {
-  name: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  stats: PropTypes.shape({
-    followers: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    likes: PropTypes.number.isRequired,
-  }),
-};

@@ -1,8 +1,16 @@
-import PropTypes from 'prop-types';
 import StatisticElement from './StatisticElement';
 import s from './Statistic.module.css';
 
-export default function Statistics({ title, stats }) {
+interface IStatistics {
+  title: string;
+  stats: {
+    label: string;
+    percentage: number;
+    id: string;
+  }[];
+}
+
+const Statistics = <T extends IStatistics>({ title, stats }: T) => {
   return (
     <section className={s.statistics}>
       {title && <h2 className={s.title}>UPLOAD STATS</h2>}
@@ -12,13 +20,6 @@ export default function Statistics({ title, stats }) {
       </ul>
     </section>
   );
-}
-
-Statistics.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  ),
 };
+
+export default Statistics;

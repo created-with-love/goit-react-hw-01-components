@@ -1,7 +1,16 @@
 import TransactionElement from './TransactionElement';
 import s from './Transactions.module.css';
 
-export default function Transactions({ transactionsData }) {
+interface ITransaction {
+  transactionsData: {
+    id: string;
+    type: string;
+    amount: string;
+    currency: string;
+  }[];
+}
+
+export default function Transactions({ transactionsData }: ITransaction) {
   if (transactionsData.length === 0) return null;
 
   return (

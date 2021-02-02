@@ -1,7 +1,15 @@
-import PropTypes from 'prop-types';
 import s from './Statistic.module.css';
 
-export default function StatisticElement({ item, index }) {
+interface IStatisticElement {
+  item: {
+    label: string;
+    percentage: number;
+    id: string;
+  };
+  index: number;
+}
+
+const StatisticElement = <T extends IStatisticElement>({ item, index }: T) => {
   const colors = [
     '#ba6e6e',
     '#746eba',
@@ -20,12 +28,6 @@ export default function StatisticElement({ item, index }) {
       <span className={s.percentage}>{item.percentage}%</span>
     </li>
   );
-}
-
-StatisticElement.propTypes = {
-  item: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    percentage: PropTypes.number.isRequired,
-    id: PropTypes.string.isRequired,
-  }),
 };
+
+export default StatisticElement;
